@@ -26,16 +26,16 @@ number and links nowhere now, including the two this page used to send you to: #
 (the D3D12 → Vulkan page).
 
 - The titles of the issues that were open there are indexed in
-  [#18](https://github.com/ubiquitarianism/leonida/issues/18). To carry one on, open it again here and link the
+  [#18](https://github.com/ProjectLeonida/mandy/issues/18). To carry one on, open it again here and link the
   index.
 - The pull requests that were open there are kept as `old-pr/<old number>` branches, listed in
-  [#17](https://github.com/ubiquitarianism/leonida/issues/17). To carry one on, rebase it on `main`, keep its
+  [#17](https://github.com/ProjectLeonida/mandy/issues/17). To carry one on, rebase it on `main`, keep its
   author's commits and open a pull request here.
 - A GPU test result is a pull request that adds a file to [`gpu-test-results/`](gpu-test-results) in the format of
   the files there; [docs/testing.md](docs/testing.md) has how to run the tests.
 - The plan and status of the D3D12 → Vulkan layer are in [docs/d3d12_vulkan.md](docs/d3d12_vulkan.md).
 
-[claims]: https://github.com/ubiquitarianism/leonida/issues?q=is%3Aissue%20is%3Aopen%20in%3Atitle%20%22Coordinating%20who%20works%20on%20what%22
+[claims]: https://github.com/ProjectLeonida/mandy/issues?q=is%3Aissue%20is%3Aopen%20in%3Atitle%20%22Coordinating%20who%20works%20on%20what%22
 
 ## Working on the code
 

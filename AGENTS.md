@@ -41,7 +41,7 @@ loader that maps the game's executable and resolves its imports to shims. Nothin
   number:
 
   ```sh
-  gh issue list -R ubiquitarianism/leonida --state open --search "Coordinating who works on what in:title"
+  gh issue list -R ProjectLeonida/mandy --state open --search "Coordinating who works on what in:title"
   ```
 
   With no `gh` auth, the search link in [CONTRIBUTING.md](CONTRIBUTING.md) works in a browser; say so when you cannot
@@ -59,8 +59,8 @@ loader that maps the game's executable and resolves its imports to shims. Nothin
 - The original repository (`ItsNotRexed/Leonida`) went private on 23 November 2026. A `#N` written before that is
   an old number and links nowhere: do not cite one as if it could be read, and do not run `gh` against that
   repository. The old open issues are indexed by title in
-  [#18](https://github.com/ubiquitarianism/leonida/issues/18) and the old open pull requests are kept as
-  `old-pr/<old number>` branches ([#17](https://github.com/ubiquitarianism/leonida/issues/17)).
+  [#18](https://github.com/ProjectLeonida/mandy/issues/18) and the old open pull requests are kept as
+  `old-pr/<old number>` branches ([#17](https://github.com/ProjectLeonida/mandy/issues/17)).
 
 ## Before you guess, look
 

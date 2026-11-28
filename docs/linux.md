@@ -40,7 +40,7 @@ sudo apt install git python3 \
 Then, with your own copy of the game already readable on disk:
 
 ```sh
-git clone --recursive https://github.com/ubiquitarianism/leonida
+git clone --recursive https://github.com/ProjectLeonida/mandy
 cd leonida
 ./Build.sh --find        # list the copies found: the home folder, Downloads, Documents, /mnt, /media/<user>, ...
 ./Build.sh --check       # check your copy, build nothing
