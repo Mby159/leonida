@@ -1189,11 +1189,38 @@ class PoolSelfCalibrationTest(unittest.TestCase):
             self.assertEqual(bc7_bits[91][:8], [8] * 8)
 
 
+def _volume_exists(case_sensitive_result):
+    """`os.path.exists` as the simulated volume answers it.
+
+    `report_paths` asks the volume itself, with one scratch folder, whether two spellings that differ only by
+    case name one file. A case-sensitive volume holds no file under the other spelling; a folding one does. The
+    host's own volume must not answer here, or the result follows the machine the test runs on instead of the
+    volume the test simulates.
+    """
+
+    def exists(path):
+        path = os.fspath(path)
+        parent, name = os.path.split(path)
+        try:
+            entries = os.listdir(parent)
+        except OSError:
+            return False
+        if case_sensitive_result:
+            return name in entries
+        return name.casefold() in {entry.casefold() for entry in entries}
+
+    return exists
+
+
 class PathDeduplicationAndGuardTest(unittest.TestCase):
     @staticmethod
     def _darwin(case_sensitive_result):
         fake_os = mock.Mock(wraps=os, pathconf=mock.Mock(return_value=case_sensitive_result))
         fake_os.path.normcase = posixpath.normcase
+        # The simulated volume answers the scratch-folder probe as well; without that the probe runs against the
+        # host filesystem, and a case-insensitive host (Windows, macOS's default) folds the two spellings into
+        # one file, so the case-sensitive branch below would never be reached.
+        fake_os.path.exists = _volume_exists(case_sensitive_result)
         return mock.patch.multiple(report_paths, sys=mock.Mock(platform="darwin"), os=fake_os)
 
     def test_resolve_pools_deduplicates_macos_case_and_accents_and_keeps_case_sensitive(self):
