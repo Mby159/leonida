@@ -3112,7 +3112,7 @@ void main(uint3 group : SV_GroupID, uint3 thread : SV_DispatchThreadID) {
     /// the pass cannot read.
     #[test]
     fn batch_tables() {
-        use batch::{JOBS, SLOT, TABLE, TIMES, Table, job};
+        use batch::{JOBS, SLOT, TABLE, TIMES, Table, experiments, job};
         let mut memory = vec![0xffff_ffffu32; TABLE as usize / 4 + 1];
         // SAFETY: the vector holds the table and outlives its use.
         let mut t = unsafe { Table::new(memory.as_mut_ptr().cast(), 4096, [7, 9, 0, 0]) };
@@ -3121,7 +3121,8 @@ void main(uint3 group : SV_GroupID, uint3 thread : SV_DispatchThreadID) {
         assert_eq!(t.place(7, 64, 2), Some(4096 + 2 * u64::from(SLOT)), "another kind is another record");
         // The same record again: the same place, charged twice.
         assert_eq!(t.place(9, 64, 10), Some(4096 + u64::from(SLOT)));
-        assert_eq!(&memory[..4], [3, 0xffff_ffff, 0xffff_ffff, 0xffff_ffff]);
+        // The count, the experiment bits, then the words the table leaves alone.
+        assert_eq!(&memory[..4], [3, experiments(), 0xffff_ffff, 0xffff_ffff]);
         assert_eq!(memory[4..8], [job(0, 10, 1), 64, 4096, 0]);
         assert_eq!(memory[8..12], [job(1, 10, 2), 64, 4096 + SLOT, 0]);
         assert_eq!(job(1, 10, 2), 1 | 10 << 4 | 3 << 8 | 2 << 16);
