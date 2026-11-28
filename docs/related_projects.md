@@ -150,7 +150,7 @@ Direct3D 12.
 [README][victory-readme]. The [GPU crate][victory-gpu] inherits the workspace licence.
 
 **What we use it for:** prior art for deferring CPU-side value writes until the recorded command-list work has
-completed, as discussed in [#622](https://github.com/ubiquitarianism/leonida/pull/622). That PR uses synthetic
+completed, as discussed in [#622](https://github.com/ProjectLeonida/mandy/pull/622). That PR uses synthetic
 tests to verify the ordering of submissions and writes in Leonida's own implementation.
 
 [victory-workspace]: https://github.com/Marvisak/VIctory/blob/ffe310eb2098e52169f4c44db5ffdabf43a72622/Cargo.toml

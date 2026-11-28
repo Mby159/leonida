@@ -1,10 +1,10 @@
 # Portable record of the original repository's history
 
 The original `ItsNotRexed/Leonida` repository went private on 23 November 2026. Its code survives as branches here and
-its issues as an index in [#18](https://github.com/ubiquitarianism/leonida/issues/18), but both of those still live on
+its issues as an index in [#18](https://github.com/ProjectLeonida/mandy/issues/18), but both of those still live on
 one service. This directory is the part that does not: the old pull request branch tips and the old issue index as
 sorted text files with a SHA-256 beside each, so the record can be checked and moved without GitHub. Requested by
-[#563](https://github.com/ubiquitarianism/leonida/issues/563) (a migration to [Radicle](https://radicle.xyz/)).
+[#563](https://github.com/ProjectLeonida/mandy/issues/563) (a migration to [Radicle](https://radicle.xyz/)).
 
 Nothing of the game is in them. A row is an old number, a SHA, a name, a date and a subject line, or an old issue's
 number, title, author and labels.

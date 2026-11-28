@@ -22,7 +22,7 @@ with fixed fields, and how sure a claim is. It adds to [CONTRIBUTING.md](../CONT
 | Profile | Machine | Work it is best placed for |
 |---|---|---|
 | L | 24 GB of video memory or more | Long runs into the world, the large ray-tracing programs described in [running.md](running.md), the control arm of an A/B test |
-| M | 8 GB to under 24 GB | Stalls and timing limits, such as the driver's time on pipeline creation (reported by others on one 8 GB laptop card: [#2415, comment](https://github.com/ubiquitarianism/leonida/pull/2415#issuecomment-7206470912)), reproducing a reported failure, what fails when video memory is short |
+| M | 8 GB to under 24 GB | Stalls and timing limits, such as the driver's time on pipeline creation (reported by others on one 8 GB laptop card: [#2415, comment](https://github.com/ProjectLeonida/mandy/pull/2415#issuecomment-7206470912)), reproducing a reported failure, what fails when video memory is short |
 | S | Integrated, older, Intel, Apple | The GPU test suite ([testing.md](testing.md)) and a file in `gpu-test-results/`, driver-specific problems |
 | F | Several GPUs in one machine | Disjoint shards and pull request checks ([multi_gpu_validation.md](multi_gpu_validation.md)) |
 | Z | No free GPU, or one busy with a long run | The translator suite, unit tests, docs, tools, pull request review |

@@ -18,11 +18,11 @@ Paths are placeholders: `<checkout>` is the repository, `<build>` the folder wit
   with `LEONIDA_TITLE_WATCHDOG_KICK=<trap RVA>,<kick RVA>` (hex), two addresses in the executable that each person
   measures in their own copy (`runtime/src/main.cpp` describes the trap instruction the first must point at). The
   values are never committed. With `=0` alone the loader logs that the watchdog stays armed. (Measured by us; the
-  watchdog was identified in [#2019](https://github.com/ubiquitarianism/leonida/issues/2019#issuecomment-7172996360).)
+  watchdog was identified in [#2019](https://github.com/ProjectLeonida/mandy/issues/2019#issuecomment-7172996360).)
 - **The GPU timeout.** World frames take seconds each. The OS's GPU timeout must be longer, or the driver resets the
   GPU: amdgpu's `lockup_timeout` on Linux, `TdrDelay` on Windows (sections below).
 - **Large ray-tracing programs.** 724 library compute programs have 2 MiB of SPIR-V or more (676 of them ray-tracing
-  resolve). With wave64 emulation they took 89-167 s each in the driver ([reported by others](https://github.com/ubiquitarianism/leonida/issues/1608#issuecomment-7184700506);
+  resolve). With wave64 emulation they took 89-167 s each in the driver ([reported by others](https://github.com/ProjectLeonida/mandy/issues/1608#issuecomment-7184700506);
   the count of 724 also measured by us). With a native wave64 pack compile time is no reason to leave them out: on an
   RX 7900 XTX (RADV, Mesa 26.3.1, Wine) all 721 such programs of that pack built, 360 of them in 170 s on 32 threads,
   2.5-32 s each, the largest (13 MiB) in 28.5 s alone, at a peak of 14 GiB of RAM (measured by us). The pipeline
@@ -97,7 +97,7 @@ was known. The settings that drew the world on the RX 7900 XTX have not been tri
 
 ## Linux, Proton, NVIDIA
 
-Reported by others: [#1608, comment 7184700506](https://github.com/ubiquitarianism/leonida/issues/1608#issuecomment-7184700506)
+Reported by others: [#1608, comment 7184700506](https://github.com/ProjectLeonida/mandy/issues/1608#issuecomment-7184700506)
 (RTX 3090 24 GB, NVIDIA 590.48.01, GE-Proton11-14, Debian 13). Not run by us.
 
 - **Build:** clang-cl + xwin cross-build; `main` plus several pull requests and two local changes (listed in the report).
@@ -125,7 +125,7 @@ Reported by others: [#1608, comment 7184700506](https://github.com/ubiquitariani
 
 ## Windows, NVIDIA
 
-Reported by others: [#2019](https://github.com/ubiquitarianism/leonida/issues/2019) (RTX 5090 32 GB, driver 616.92,
+Reported by others: [#2019](https://github.com/ProjectLeonida/mandy/issues/2019) (RTX 5090 32 GB, driver 616.92,
 Windows 11). Not run by us.
 
 - **Build:** `scripts/build_runtime.ps1` with SDL3, RelWithDebInfo.
