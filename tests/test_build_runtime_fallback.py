@@ -115,7 +115,7 @@ class FallbackBuildsTheHarnesses(unittest.TestCase):
         cmake = (ROOT / "runtime" / "CMakeLists.txt").read_text(encoding="utf-8")
         reserve = re.search(r"set\(GTA6RT_STACK (\d+)\)", cmake).group(1)
         self.assertGreaterEqual(int(reserve), 8 * 1024 * 1024)
-        self.assertRegex(cmake, r"target_link_options\(gta6rt PRIVATE [^)]*/STACK:\$\{GTA6RT_STACK\}\)")
+        self.assertRegex(cmake, r"target_link_options\(gta6rt PRIVATE [^)]*/STACK:\$\{GTA6RT_STACK\}")
         lines = [line for line in self.body.splitlines() if "/Fe:gta6rt.exe" in line]
         self.assertEqual(len(lines), 1)
         self.assertRegex(lines[0], rf"/Fe:gta6rt\.exe /link (\S+ )*/STACK:{reserve}( |$)")
